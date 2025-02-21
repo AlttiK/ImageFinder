@@ -26,8 +26,6 @@ export default function HomeScreen() {
 
   const handleSearch = (query: string) => {
     setSearchQuery(query);
-    // Implement your DeepSeek search logic here
-    // This is where you'd integrate with your AI service
   };
 
   const addFilter = () => {
@@ -35,7 +33,6 @@ export default function HomeScreen() {
       const newFilters = [...activeFilters, searchQuery];
       setActiveFilters(newFilters);
       setSearchQuery('');
-      // Implement multi-layer filtering here
       applyFilters(newFilters);
     }
   };
@@ -47,8 +44,7 @@ export default function HomeScreen() {
   };
 
   const applyFilters = (filters: string[]) => {
-    // Implement your actual filtering logic with DeepSeek here
-    // For now, just filter photos with even index as demo
+    // Test filter
     const filtered = allPhotos.filter((_, index) => 
       filters.every(() => index % 2 === 0) // Replace with actual AI filtering
     );
@@ -57,7 +53,6 @@ export default function HomeScreen() {
 
   return (
     <View style={styles.container}>
-      {/* Header Banner */}
       <LinearGradient
         colors={['#1e3c72', '#2a5298']}
         style={styles.header}
@@ -67,7 +62,6 @@ export default function HomeScreen() {
         <Text style={styles.logo}>PhotoFinder</Text>
       </LinearGradient>
 
-      {/* Search Bar */}
       <View style={styles.searchContainer}>
         <Searchbar
           placeholder="Search photos..."
@@ -79,7 +73,6 @@ export default function HomeScreen() {
           inputStyle={{ color: '#1e3c72' }}
         />
         
-        {/* Active Filters */}
         <View style={styles.filterContainer}>
           {activeFilters.map((filter, index) => (
             <Chip
