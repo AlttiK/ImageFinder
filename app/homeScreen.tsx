@@ -12,7 +12,7 @@ export default function HomeScreen() {
   const [filteredPhotos, setFilteredPhotos] = useState<MediaLibrary.Asset[]>([]);
   const [allPhotos, setAllPhotos] = useState<MediaLibrary.Asset[]>([]);
 
-  // Fetch initial photos
+  // Fetch initial photos and get access
   useEffect(() => {
     (async () => {
       const { status } = await MediaLibrary.requestPermissionsAsync();
